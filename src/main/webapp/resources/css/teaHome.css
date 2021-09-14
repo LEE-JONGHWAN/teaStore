@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+body {
+	text-align: center;
+}
+div.top {
+	min-height: 150px;
+	background: #3e3e3e;
+	height: 25%;
+	text-align: center;
+	color: ivory;
+	display: flex;
+	justify-content: center;
+}
+
+div.textPart {
+	padding: 10px;
+	border-style: inset;
+	border-color: ivory;
+}
+
+div.mainDiv {
+	margin: 20px 10%;
+	height: 100%;
+}
+
+div.homeLink {
+	clear: both;
+	text-align: center;
+}
+
+div.homeLink a {
+	display: inline-block;
+}
+
+div.teaBlock {
+	height: 260px;
+	width: 1010px;
+	margin: 0 auto;
+}
+
+div.caption {
+	float: left;
+	border: 1px solid black;
+	width: 31%;
+	height: 250px;
+	margin: auto 1% auto 1%;
+}
