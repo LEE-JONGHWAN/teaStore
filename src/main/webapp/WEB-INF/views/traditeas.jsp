@@ -31,7 +31,9 @@
 					<p>차이름: ${tradiTea.teaName}</p>
 					<p>제고량: ${tradiTea.stock}</p>
 					<p>생산일: ${tradiTea.prodDate}</p>
-					<p>판매가: ${tradiTea.price}</p>
+					<p>판매가: ${tradiTea.priceStr}</p>
+					<p><a href="<c:url value='/tea/teaDetail?teaId=${tradiTea.teaID}'/>">
+						제품정보</a></p>
 				</div>
 			</c:forEach>
 		</div>

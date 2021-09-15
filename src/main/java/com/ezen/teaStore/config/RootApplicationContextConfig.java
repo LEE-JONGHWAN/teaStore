@@ -9,8 +9,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
 public class RootApplicationContextConfig {
-
-	// MariaDB 사용 때:
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
@@ -20,7 +18,7 @@ public class RootApplicationContextConfig {
 		ds.setPassword("1234");
 		return ds;
 	}
-
+	
 	@Bean
 	public NamedParameterJdbcTemplate getJdbcTemplate() {
 		return new NamedParameterJdbcTemplate(dataSource());

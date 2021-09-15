@@ -1,11 +1,11 @@
-package com.ezen.teaStore.service;
+package com.ezen.teaStore.repo;
 
 import java.util.List;
 import java.util.Map;
 
 import com.ezen.teaStore.domain.TradiTea;
 
-public interface TradiTeaService {
+public interface TradiTeaRepo {
 	List<TradiTea> getAllTradiTeas();
 	List<String> getTEA_COUNT();
 	void todayTea(String todayTea);

@@ -18,11 +18,8 @@ import org.springframework.web.util.UrlPathHelper;
 @EnableWebMvc
 @ComponentScan("com.ezen.teaStore")
 public class WebApplicationContextConfig 
-	extends WebMvcConfigurerAdapter { 
+		extends WebMvcConfigurerAdapter {
 
-	
-
-	
 	@Override
 	public void configurePathMatch(PathMatchConfigurer configurer) {
 		UrlPathHelper urlPathHelper = new UrlPathHelper();
@@ -30,33 +27,30 @@ public class WebApplicationContextConfig
 		
 		configurer.setUrlPathHelper(urlPathHelper);
 	}
+	
+	@Override
+	public void configureDefaultServletHandling(
+			DefaultServletHandlerConfigurer configurer) {
+		configurer.enable();
+	}
 
-    @Override
-    public void configureDefaultServletHandling(
-        DefaultServletHandlerConfigurer configurer) {
-            configurer.enable();
-    }
-    
 	@Bean
 	public MessageSource messageSource() { 
-	   ResourceBundleMessageSource resource = new ResourceBundleMessageSource();
+	   ResourceBundleMessageSource resource = 
+			   new ResourceBundleMessageSource();
 	   resource.setBasename("messages");
 	   resource.setDefaultEncoding("utf-8");
 	   return resource;    
 	}	
- 
-    @Bean
-    public InternalResourceViewResolver
-            getInternalResourceViewResolver() {
-        var resolver = new InternalResourceViewResolver();
-        resolver.setViewClass(JstlView.class);
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".jsp");
+	
+	@Bean
+	public InternalResourceViewResolver 
+			getInternalResourceViewResolver() {
+		var resolver = new InternalResourceViewResolver();
+		resolver.setViewClass(JstlView.class);
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".jsp");
 
-        return resolver;
-    }
-    
-
-    
-    
+		return resolver;
+	}
 }

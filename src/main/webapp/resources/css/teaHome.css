@@ -46,3 +46,40 @@ div.caption {
 	height: 250px;
 	margin: auto 1% auto 1%;
 }
+
+div.teaDetail {
+	width: 800px;
+	border: 1px solid black;
+	display: block;
+	overflow: auto;
+	margin: auto;
+}
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Aligner-item {
+  max-width: 50%;
+}
+
+table {
+	margin:auto;
+}
+
+th {
+	text-align: right;
+}
+
+.newTea {
+	margin: auto;
+	width: 700px;
+} 
+#btnAdd {
+	width: 100px;
+}
+legend {
+	text-align: left;
+}
