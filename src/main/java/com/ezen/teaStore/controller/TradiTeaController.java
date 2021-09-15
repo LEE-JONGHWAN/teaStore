@@ -38,20 +38,22 @@ public class TradiTeaController {
 	}
 	
 
-	@RequestMapping(value="/addTea", method = RequestMethod.GET)
+	@RequestMapping(value="/add", method = RequestMethod.GET)
 	public String addTradiTea(
-		@ModelAttribute("tradiTea") TradiTea tradiTea) {
-		return "addTradiTea";
+			@ModelAttribute("tradiTea") TradiTea tradiTea) {
+		return "addTea";
 	}
-	@RequestMapping(value="/addTea", method = RequestMethod.POST)
+	
+	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public String addTradiTea(@ModelAttribute("tradiTea") 
 			TradiTea tradiTea, BindingResult result) {
 		String[] suppressedFields = result.getSuppressedFields();
 		if (suppressedFields.length > 0) {
-			throw new RuntimeException("허용되지 않은 것 중 바인딩 시도된 항목 : " + 
-			StringUtils.arrayToCommaDelimitedString(suppressedFields));
+		   throw new RuntimeException("허용되지 않은 항목을 엮어오려고 함: " +
+		      StringUtils.arrayToCommaDelimitedString(suppressedFields));
+		} else {
+		   tradiTeaService.addTradiTea(tradiTea);
 		}
-		tradiTeaService.addTradiTea(tradiTea);
 		return "redirect:/tea/listing";
 	}
 
@@ -98,6 +100,7 @@ public class TradiTeaController {
 	    CustomDateEditor orderDateEditor = 
 	        new CustomDateEditor(dateFormat, true);
 	    binder.registerCustomEditor(Date.class, orderDateEditor);
+	    binder.setDisallowedFields("price");
 	}
 
 	@RequestMapping("/listing")
