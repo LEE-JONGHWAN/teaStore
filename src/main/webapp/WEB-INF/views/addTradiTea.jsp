@@ -52,7 +52,29 @@
 							<form:input id="teaName" path="teaName" type="text"
 									class="form:input-large" />
 							</td>
-					</tr>				
+					</tr>
+	
+					<tr>
+						<th><label for="amount"> 
+							<spring:message code="addTea.form.label.amount"/>
+							</label>
+						</th>
+							<td align="left">
+							<form:input id="amount" path="amount" type="text"
+							class="form:input-large" />
+							</td>
+				</tr>	
+	
+				<tr>								
+					<th><label for="price"> 
+						<spring:message code="addTea.form.label.price"/>
+						</label>
+					</th>
+						<td align="left">
+						<form:input id="price" path="price" type="text"
+								class="form:input-large" />
+						</td>
+				</tr>			
 					
 				<tr>
 					<th><label class="control-label col-lg-2 col-lg-2" for="stock">
@@ -74,28 +96,6 @@
 						</td>
 				</tr>
 				
-				<tr>
-						<th><label for="amount"> 
-							<spring:message code="addTea.form.label.amount"/>
-							</label>
-						</th>
-							<td align="left">
-							<form:input id="amount" path="amount" type="text"
-							class="form:input-large" />
-							</td>
-				</tr>
-				
-				<tr>								
-					<th><label for="price"> 
-						<spring:message code="addTea.form.label.price"/>
-						</label>
-					</th>
-						<td align="left">
-						<form:input id="price" path="price" type="text"
-								class="form:input-large" />
-						</td>
-				</tr>
-											
 				<tr>
 					<th><label for="prodDesc"> 
 						<spring:message code="addTea.form.label.prodDesc"/>

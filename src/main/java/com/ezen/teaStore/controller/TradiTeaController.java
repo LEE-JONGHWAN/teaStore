@@ -1,15 +1,21 @@
 package com.ezen.teaStore.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -85,6 +91,14 @@ public class TradiTeaController {
 		tradiTeaService.todayTea(todayTea);
 		return "redirect:/tea/listing";
 	}
+	
+	@InitBinder
+	public void initialiseBinder (WebDataBinder binder) {
+	    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	    CustomDateEditor orderDateEditor = 
+	        new CustomDateEditor(dateFormat, true);
+	    binder.registerCustomEditor(Date.class, orderDateEditor);
+	}
 
 	@RequestMapping("/listing")
 	public String listing(Model model) {
@@ -96,7 +110,8 @@ public class TradiTeaController {
 	}
 
 	static private String getTodaySpecial(List<String> nameList) {
-		int idx = (int) ChronoUnit.DAYS.between(LocalDate.of(2021, 6, 22), LocalDate.now()) % nameList.size();
+		int idx = (int) ChronoUnit.DAYS.between(LocalDate.of(2021, 6, 22), 
+				LocalDate.now()) % nameList.size();
 
 		return nameList.get(idx);
 	}
